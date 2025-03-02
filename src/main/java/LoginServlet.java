@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/login")
+@WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
     LoginService service=new LoginService();
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 
         if(isValidUser){
             req.getSession().setAttribute("username",username);
-            resp.sendRedirect("/ToDoJSPServlet/todo");
+            resp.sendRedirect("/ToDoJSPServlet/todo.do");
         } else{
             req.setAttribute("error","Invalid credentials! Please try again");
             req.getRequestDispatcher("/index.jsp").forward(req,resp);

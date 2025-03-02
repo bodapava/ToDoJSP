@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/todo")
+@WebServlet(urlPatterns = "/todo.do")
 public class TodoServlet extends HttpServlet {
     TodoService todoService=new TodoService();
     @Override

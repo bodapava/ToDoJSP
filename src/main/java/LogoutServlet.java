@@ -6,13 +6,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/delete-todo.do")
-public class DeleteServlet extends HttpServlet {
-        TodoService todoService=new TodoService();
+@WebServlet(urlPatterns = "/logout.do")
+public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String todo=req.getParameter("todo");
-        todoService.deleteTodo(todo);
-        resp.sendRedirect("/ToDoJSPServlet/todo.do");
+        req.getSession().invalidate();
+        req.getRequestDispatcher("/index.jsp").forward(req,resp);
     }
 }
